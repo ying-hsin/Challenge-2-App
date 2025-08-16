@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MainGame.swift
 //  Challenge 2 App
 //
 //  Created by Lim Ying Hsin on 2/8/25.
@@ -7,11 +7,12 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainGame: View {
     var body: some View {
-            }
+        
+    }
 }
 
 #Preview {
-    ContentView()
+    MainGame()
 }
