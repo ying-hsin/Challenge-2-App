@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Page1: View {
+struct StartPage: View {
     var body: some View {
         NavigationStack {
         VStack {
@@ -33,5 +33,5 @@ struct Page1: View {
 
 
 #Preview {
-    Page1()
+    StartPage()
 }

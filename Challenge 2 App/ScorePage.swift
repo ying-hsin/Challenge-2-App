@@ -9,19 +9,22 @@ import SwiftUI
 
 struct ScorePage: View {
     var body: some View {
-        Text("Score")
-            .font(.system(size:30))
-        Text("Good:")
-        Text("Missed")
-        Button {
-            // perform an action
-            print("Restart")
-        } label: {
-            // the buttons label, whats presented
-            Text("Restart")
-            
-    }
-
+        NavigationStack {
+            Text("Score")
+                .font(.system(size:30))
+            Text("Excellent:")
+            Text("Good:")
+            Text("Fair:")
+            Text("Missed:")
+            HStack (spacing:30){
+                NavigationLink("Restart") {
+                    MainGame()
+                }
+                NavigationLink("Quit") {
+                    StartPage()
+                }
+            }
+        }
     }
 }
 
