@@ -9,18 +9,28 @@ import SwiftUI
 
 struct Page1: View {
     var body: some View {
-        Text("CHOOSE YOUR SONG")
-            .font(.system(size:50))
-        NavigationLink {
-            // perform an action
-            MainGame()
-        } label: {
-            Text("Song 1")
-            
+        NavigationStack {
+        VStack {
+            Text("CHOOSE YOUR SONG")
+                .font(.system(size:50))
+                .padding()
+            ScrollView {
+                VStack(spacing: 40) {
+                    NavigationLink("Song1") {
+                        MainGame()
+                    }
+                    Text("Song2")
+                    Text("Song3")
+                    Text("Song4")
+                    Text("Song5")
+                    Text("Song6")
+                    }
+                }
+            }
         }
-        
     }
 }
+
 
 #Preview {
     Page1()

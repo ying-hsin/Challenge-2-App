@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainGame: View {
     var body: some View {
-        
+        Text("Hello")
     }
 }
 
