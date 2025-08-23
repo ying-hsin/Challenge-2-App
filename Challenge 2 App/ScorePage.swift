@@ -18,7 +18,7 @@ struct ScorePage: View {
             Text("Missed:")
             HStack (spacing:30){
                 NavigationLink("Restart") {
-                    MainGame()
+                    AudioPlayerView()
                 }
                 NavigationLink("Quit") {
                     StartPage()

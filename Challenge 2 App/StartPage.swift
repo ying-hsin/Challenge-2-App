@@ -17,7 +17,7 @@ struct StartPage: View {
             ScrollView {
                 VStack(spacing: 40) {
                     NavigationLink("Song1") {
-                        MainGame()
+                        AudioPlayerView()
                     }
                     Text("Song2")
                     Text("Song3")

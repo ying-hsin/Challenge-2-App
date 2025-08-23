@@ -16,13 +16,19 @@ struct AudioPlayerView: View {
     @State var isPlaying = false
     
     var body: some View {
-        VStack {
-            if let player = player {
-                Text(fileName ?? "File")
+        NavigationStack {
+            VStack {
+                if let player = player {
+                    Text(fileName ?? "File")
+                    NavigationLink("Play") {
+                        GamePage()
+                    }
+                }
             }
         }
     }
 }
+
 
 #Preview {
     AudioPlayerView()
