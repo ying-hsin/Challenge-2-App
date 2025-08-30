@@ -18,7 +18,7 @@ struct AudioPlayerView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                if let player = player {
+                if player != nil {
                     Text(fileName ?? "File")
                     NavigationLink("Play") {
                         GamePage()
