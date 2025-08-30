@@ -21,7 +21,7 @@ struct AudioPlayerView: View {
                 if let player = player {
                     Text(fileName ?? "File")
                     NavigationLink("Play") {
-                        GamePage()
+                        ContentView()
                     }
                 }
             }
