@@ -21,7 +21,7 @@ struct ScorePage: View {
                     AudioPlayerView()
                 }
                 NavigationLink("Quit") {
-                    StartPage()
+                    ContentView()
                 }
             }
         }

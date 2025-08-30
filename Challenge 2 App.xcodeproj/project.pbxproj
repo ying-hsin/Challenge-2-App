@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B2D1E48A2E62EBAE0026655D /* Subsonic in Frameworks */ = {isa = PBXBuildFile; productRef = B2D1E4892E62EBAE0026655D /* Subsonic */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		32C96AA82E3DF4530081190A /* Challenge 2 App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Challenge 2 App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2D1E48A2E62EBAE0026655D /* Subsonic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +70,7 @@
 			);
 			name = "Challenge 2 App";
 			packageProductDependencies = (
+				B2D1E4892E62EBAE0026655D /* Subsonic */,
 			);
 			productName = "Challenge 2 App";
 			productReference = 32C96AA82E3DF4530081190A /* Challenge 2 App.app */;
@@ -94,6 +100,9 @@
 			);
 			mainGroup = 32C96A9F2E3DF4530081190A;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				B2D1E4882E62EBAE0026655D /* XCRemoteSwiftPackageReference "Subsonic" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 32C96AA92E3DF4530081190A /* Products */;
 			projectDirPath = "";
@@ -322,6 +331,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B2D1E4882E62EBAE0026655D /* XCRemoteSwiftPackageReference "Subsonic" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/Subsonic";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B2D1E4892E62EBAE0026655D /* Subsonic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B2D1E4882E62EBAE0026655D /* XCRemoteSwiftPackageReference "Subsonic" */;
+			productName = Subsonic;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 32C96AA02E3DF4530081190A /* Project object */;
 }

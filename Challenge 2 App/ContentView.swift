@@ -6,13 +6,32 @@
 //
 
 import SwiftUI
-import AVFAudio
+import Subsonic
 
 struct ContentView: View {
-    @State private var audioPlayer: AVAudioPlayer?
-    
     var body: some View {
-        AudioPlayerView(fileName: "Sample Audio")
+        NavigationStack {
+            VStack {
+                Text("CHOOSE YOUR SONG")
+                    .font(.system(size:50))
+                    .padding()
+                ScrollView {
+                    VStack(spacing: 40) {
+                        NavigationLink("Song1") {
+                            AudioPlayerView()
+                                .onAppear {
+                                    play(sound: "sample audio.mp3")
+                                }
+                        }
+                        Text("Song2")
+                        Text("Song3")
+                        Text("Song4")
+                        Text("Song5")
+                        Text("Song6")
+                    }
+                }
+            }
+        }
     }
 }
 

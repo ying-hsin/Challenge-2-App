@@ -6,28 +6,16 @@
 //
 
 import SwiftUI
-import AVKit
+import Subsonic
 
 struct AudioPlayerView: View {
-    var fileName: String?
-    var url: URL?
-    
-    @State var player: AVAudioPlayer?
-    @State var isPlaying = false
-    
     var body: some View {
-        NavigationStack {
-            VStack {
-                if player != nil {
-                    Text(fileName ?? "File")
-                    NavigationLink("Play") {
-                        ContentView()
-                    }
-                }
-            }
+        Button("stop") {
+            stop(sound:"sample audio.mp3")
         }
     }
 }
+
 
 
 #Preview {
