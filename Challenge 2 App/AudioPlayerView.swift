@@ -100,6 +100,9 @@ struct AudioPlayerView: View {
                 }
             }
         }
+        .onAppear {
+            play(sound: "sample audio.mp3")
+        }
         .onReceive(timer) { _ in
             let randomInt = Int.random(in: 1..<5)
             if randomInt == 1 {
@@ -111,6 +114,10 @@ struct AudioPlayerView: View {
             } else {
                 showD()
             }
+        }
+        .task {
+            try? await Task.sleep(for: .seconds(15))
+            stop(sound: "sample audio.mp3")
         }
     }
 }

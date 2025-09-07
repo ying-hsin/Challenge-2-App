@@ -19,9 +19,6 @@ struct ContentView: View {
                     VStack(spacing: 40) {
                         NavigationLink("Song1") {
                             AudioPlayerView()
-                                .onAppear {
-                                    play(sound: "sample audio.mp3")
-                                }
                         }
                         Text("Song2")
                         Text("Song3")
