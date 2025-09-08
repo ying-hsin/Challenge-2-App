@@ -23,6 +23,7 @@ struct ScorePage: View {
                 NavigationLink("Quit") {
                     ContentView()
                 }
+                .navigationBarBackButtonHidden(true)
             }
         }
     }
@@ -30,6 +31,6 @@ struct ScorePage: View {
 
 
 #Preview {
-    @Previewable @State var tapCount: Int = 0
+    @Previewable @State var tapCount: Int = 300
     ScorePage(tapCount: $tapCount)
 }

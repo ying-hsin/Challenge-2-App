@@ -53,7 +53,9 @@ struct AudioPlayerView: View {
     }
     
     var body: some View {
-        NavigationStack {
+        if timeHasPassed == true {
+            ScorePage(tapCount: $tapCount)
+        } else {
             GeometryReader { geometry in
                 VStack {
                     Text("tap count: \(tapCount)")
@@ -123,16 +125,11 @@ struct AudioPlayerView: View {
                 stop(sound: "sample audio.mp3")
                 timeHasPassed = true
             }
-            if timeHasPassed == true {
-                ScorePage(tapCount:$tapCount)
-            } else {
-                EmptyView()
-            }
         }
     }
 }
-    
-    
+
+
 
 
 

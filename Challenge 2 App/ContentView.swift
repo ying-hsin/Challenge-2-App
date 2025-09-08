@@ -20,6 +20,7 @@ struct ContentView: View {
                         NavigationLink("Song1") {
                             AudioPlayerView()
                         }
+                        .navigationBarBackButtonHidden(true)
                         Text("Song2")
                         Text("Song3")
                         Text("Song4")
