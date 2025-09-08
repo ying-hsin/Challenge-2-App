@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ScorePage: View {
+    @Binding var tapCount: Int
+    
     var body: some View {
         NavigationStack {
-            Text("Score")
+            Text("Great job!")
                 .font(.system(size:30))
-            Text("Excellent:")
-            Text("Good:")
-            Text("Fair:")
+            Text("Score: \(tapCount)")
             Text("Missed:")
             HStack (spacing:30){
                 NavigationLink("Restart") {
@@ -28,6 +28,8 @@ struct ScorePage: View {
     }
 }
 
+
 #Preview {
-    ScorePage()
+    @Previewable @State var tapCount: Int = 0
+    ScorePage(tapCount: $tapCount)
 }

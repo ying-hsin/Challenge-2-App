@@ -20,7 +20,9 @@ struct AudioPlayerView: View {
     @State var showButtonC: Bool = true
     @State var showButtonD: Bool = true
     
-    @State var tapCount = 0
+    @State private var tapCount: Int = 0
+    
+    @State var timeHasPassed: Bool = false
     
     let timer = Timer.publish(every: 60/100, on: .main, in: .common).autoconnect()
     func showA() {
@@ -51,76 +53,87 @@ struct AudioPlayerView: View {
     }
     
     var body: some View {
-        GeometryReader { geometry in
-            VStack {
-                Text("tap count: \(tapCount)")
-                HStack {
-                    Divider()
-                    
-                    
-                    Rectangle()
-                        .fill(.black)
-                        .frame(width:150, height:180)
-                        .onTapGesture {
-                            tapCount += 1
-                            showButtonA = false
-                        }
-                        .opacity(showButtonA == false ? 0:1)
-                        .offset(y: (geometry.size.height+360) * offsetA - (geometry.size.height+360)/2)
-                    
-                    
-                    Divider()
-                    Rectangle()
-                        .frame(width:150, height:180)
-                        .onTapGesture {
-                            tapCount += 1
-                            showButtonB = false
-                        }
-                        .opacity(showButtonB == false ? 0:1)
-                        .offset(y: (geometry.size.height+360) * offsetB - (geometry.size.height+360)/2)
-                    Divider()
-                    Rectangle()
-                        .frame(width:150, height:180)
-                        .onTapGesture {
-                            tapCount += 1
-                            showButtonC = false
-                        }
-                        .opacity(showButtonC == false ? 0:1)
-                        .offset(y:(geometry.size.height+360) * offsetC - (geometry.size.height+360)/2)
-                    Divider()
-                    Rectangle()
-                        .frame(width:150, height:180)
-                        .onTapGesture {
-                            tapCount += 1
-                            showButtonD = false
-                        }
-                        .opacity(showButtonD == false ? 0:1)
-                        .offset(y:(geometry.size.height+360) * offsetD - (geometry.size.height+360)/2)
-                    Divider()
+        NavigationStack {
+            GeometryReader { geometry in
+                VStack {
+                    Text("tap count: \(tapCount)")
+                    HStack {
+                        Divider()
+                        
+                        
+                        Rectangle()
+                            .fill(.black)
+                            .frame(width:150, height:180)
+                            .onTapGesture {
+                                tapCount += 1
+                                showButtonA = false
+                            }
+                            .opacity(showButtonA == false ? 0:1)
+                            .offset(y: (geometry.size.height+360) * offsetA - (geometry.size.height+360)/2)
+                        
+                        
+                        Divider()
+                        Rectangle()
+                            .frame(width:150, height:180)
+                            .onTapGesture {
+                                tapCount += 1
+                                showButtonB = false
+                            }
+                            .opacity(showButtonB == false ? 0:1)
+                            .offset(y: (geometry.size.height+360) * offsetB - (geometry.size.height+360)/2)
+                        Divider()
+                        Rectangle()
+                            .frame(width:150, height:180)
+                            .onTapGesture {
+                                tapCount += 1
+                                showButtonC = false
+                            }
+                            .opacity(showButtonC == false ? 0:1)
+                            .offset(y:(geometry.size.height+360) * offsetC - (geometry.size.height+360)/2)
+                        Divider()
+                        Rectangle()
+                            .frame(width:150, height:180)
+                            .onTapGesture {
+                                tapCount += 1
+                                showButtonD = false
+                            }
+                            .opacity(showButtonD == false ? 0:1)
+                            .offset(y:(geometry.size.height+360) * offsetD - (geometry.size.height+360)/2)
+                        Divider()
+                    }
                 }
             }
-        }
-        .onAppear {
-            play(sound: "sample audio.mp3")
-        }
-        .onReceive(timer) { _ in
-            let randomInt = Int.random(in: 1..<5)
-            if randomInt == 1 {
-                showA()
-            } else if randomInt == 2 {
-                showB()
-            } else if randomInt == 3 {
-                showC()
-            } else {
-                showD()
+            .onAppear {
+                play(sound: "sample audio.mp3")
             }
-        }
-        .task {
-            try? await Task.sleep(for: .seconds(15))
-            stop(sound: "sample audio.mp3")
+            .onReceive(timer) { _ in
+                let randomInt = Int.random(in: 1..<5)
+                if randomInt == 1 {
+                    showA()
+                } else if randomInt == 2 {
+                    showB()
+                } else if randomInt == 3 {
+                    showC()
+                } else {
+                    showD()
+                }
+            }
+            .task {
+                try? await Task.sleep(for: .seconds(9))
+                stop(sound: "sample audio.mp3")
+                timeHasPassed = true
+            }
+            if timeHasPassed == true {
+                ScorePage(tapCount:$tapCount)
+            } else {
+                EmptyView()
+            }
         }
     }
 }
+    
+    
+
 
 
 
